@@ -1,6 +1,6 @@
 # Compiler
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -std=c++11
+CXXFLAGS = -std=c++11
 
 # Find all .cpp files
 SOURCES = $(shell find . -name '*.cpp')

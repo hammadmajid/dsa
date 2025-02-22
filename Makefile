@@ -5,14 +5,14 @@ CXXFLAGS = -std=c++11
 # Find all .cpp files
 SOURCES = $(shell find . -name '*.cpp')
 
-# Create a list of output executables by replacing .cpp with .elf
-EXECUTABLES = $(SOURCES:.cpp=.elf)
+# Create a list of output executables
+EXECUTABLES = $(SOURCES:.cpp=)
 
 # Default target
 all: $(EXECUTABLES)
 
-# Rule to compile each .cpp file to an executable with .elf extension
-%.elf: %.cpp
+# Rule to compile each .cpp file to an executable
+%: %.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 # Clean target to remove executables

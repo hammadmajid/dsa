@@ -2,3 +2,8 @@
 !/**/
 !*.*
 !Makefile
+
+.idea
+.zed
+.helix
+.vscode

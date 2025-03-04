@@ -1,12 +1,25 @@
+#include <iomanip>
 #include <iostream>
 
-#define PROJECT_NAME "musik"
+#define WIDTH 10
 
-int main(int argc, char **argv) {
-    if(argc != 1) {
-        std::cout << argv[0] <<  "takes no arguments.\n";
-        return 1;
-    }
-    std::cout << "This is project " << PROJECT_NAME << ".\n";
-    return 0;
+using namespace std;
+
+// handle input/output operations
+class IO {
+public:
+  static bool confirm(string prompt) { return false; }
+};
+
+int main() {
+  char option;
+  do {
+    system("clear");
+    cout << "Music Player" << endl;
+    cout << string(2 * WIDTH, '=') << endl << endl;
+
+    cout << "Menu" << endl << "0: Exit" << endl << "Enter (0-n): ";
+    cin >> option;
+  } while (option != '0');
+  return 0;
 }

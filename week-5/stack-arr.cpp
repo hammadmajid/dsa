@@ -9,7 +9,7 @@ void initStack() { top = -1; }
 
 bool isEmpty() { return top == -1; };
 
-int isFull() { return top == MAX; }
+bool isFull() { return top == MAX - 1; }
 
 void push(int data) {
   if (isFull()) {
@@ -25,7 +25,8 @@ void pop() {
     cout << "Stack underfow" << endl;
   } else {
     stack[top] = 0;
-    top -= 1;;
+    top -= 1;
+    ;
   }
 }
 
@@ -45,4 +46,3 @@ int main() {
 
   display();
 }
-

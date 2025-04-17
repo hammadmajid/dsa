@@ -2,21 +2,21 @@
 using namespace std;
 
 // LinkedList class template
-template <typename T> class LinkedList {
+class LinkedList {
 private:
   // Node structure template
   struct Node {
-    T data;
+    int data;
     Node *next;
   };
 
   Node *head; // Pointer to the first node in the list
 
 public:
-  LinkedList() : head(nullptr) {} // Constructor initializes an empty list
+  LinkedList() : head(NULL) {} // Constructor initializes an empty list
 
   // Insert at front
-  void insertAtFront(T value) {
+  void insertAtFront(int value) {
     Node *newNode = new Node; // Create a new node
     newNode->data = value;
     newNode->next = head; // Point new node to current head
@@ -24,7 +24,7 @@ public:
   }
 
   // Insert at middle
-  void insertAtMiddle(T value, int position) {
+  void insertAtMiddle(int value, int position) {
     if (position <= 0) { // If position is invalid or 0, insert at front
       insertAtFront(value);
       return;
@@ -37,7 +37,7 @@ public:
     newNode->data = value;
     Node *temp = head;
     for (int i = 1; i < position;
-         i++) { // Traverse to the node before insertion point
+         i++) { // intraverse to the node before insertion point
       temp = temp->next;
     }
     newNode->next = temp->next; // Point new node to the next node
@@ -45,15 +45,15 @@ public:
   }
 
   // Insert at end
-  void insertAtEnd(T value) {
+  void insertAtEnd(int value) {
     Node *newNode = new Node;
     newNode->data = value;
-    newNode->next = nullptr;
+    newNode->next = NULL;
     if (!head) { // If list is empty, new node becomes head
       head = newNode;
     } else {
       Node *temp = head;
-      while (temp->next) { // Traverse to the last node
+      while (temp->next) { // intraverse to the last node
         temp = temp->next;
       }
       temp->next = newNode; // Link last node to new node
@@ -79,12 +79,12 @@ public:
     }
     Node *temp = head;
     for (int i = 1; i < position;
-         i++) { // Traverse to the node before deletion point
+         i++) { // intraverse to the node before deletion point
       temp = temp->next;
     }
-    Node *nodeToDelete = temp->next; // Node to be deleted
-    temp->next = nodeToDelete->next; // Link previous node to next node
-    delete nodeToDelete;             // Free memory
+    Node *nodeintoDelete = temp->next; // Node to be deleted
+    temp->next = nodeintoDelete->next; // Link previous node to next node
+    delete nodeintoDelete;             // Free memory
   }
 
   // Delete at end
@@ -93,21 +93,21 @@ public:
       return;          // If list is empty, do nothing
     if (!head->next) { // If only one node exists, delete head
       delete head;
-      head = nullptr;
+      head = NULL;
     } else {
       Node *temp = head;
-      while (temp->next->next) { // Traverse to second-last node
+      while (temp->next->next) { // intraverse to second-last node
         temp = temp->next;
       }
       delete temp->next;    // Delete last node
-      temp->next = nullptr; // Update second-last node's next pointer
+      temp->next = NULL; // Update second-last node's next pointer
     }
   }
 
   // Display the list
   void display() {
     Node *temp = head;
-    while (temp) { // Traverse and print each node
+    while (temp) { // intraverse and print each node
       cout << temp->data << " -> ";
       temp = temp->next;
     }
@@ -118,7 +118,7 @@ public:
   int size() {
     int count = 0;
     Node *temp = head;
-    while (temp) { // Traverse the list to count nodes
+    while (temp) { // intraverse the list to count nodes
       count++;
       temp = temp->next;
     }
@@ -127,7 +127,7 @@ public:
 };
 
 int main() {
-  LinkedList<int> list;
+  LinkedList list;
   while (true) {
     int choice, value, position;
     cout << "\nChoose an operation:\n";

@@ -16,11 +16,11 @@ private:
 
 public:
   // Constructor initializes an empty list
-  LinkedList() : head(nullptr), tail(nullptr) {}
+  LinkedList() : head(NULL), tail(NULL) {}
 
   // Insert a new node at the front of the list
   void insertAtFront(T value) {
-    Node *newNode = new Node{value, head, nullptr};
+    Node *newNode = new Node{value, head, NULL};
     if (head)
       head->prev = newNode; // Update previous head's prev pointer
     else
@@ -52,7 +52,7 @@ public:
 
   // Insert a new node at the end of the list
   void insertAtEnd(T value) {
-    Node *newNode = new Node{value, nullptr, tail};
+    Node *newNode = new Node{value, NULL, tail};
     if (!head) {
       head = tail = newNode; // Empty list
     } else {
@@ -69,9 +69,9 @@ public:
     Node *temp = head;
     head = head->next;
     if (head)
-      head->prev = nullptr;
+      head->prev = NULL;
     else
-      tail = nullptr; // List becomes empty
+      tail = NULL; // List becomes empty
     delete temp;
   }
 
@@ -110,9 +110,9 @@ public:
     Node *temp = tail;
     tail = tail->prev;
     if (tail)
-      tail->next = nullptr;
+      tail->next = NULL;
     else
-      head = nullptr; // List becomes empty
+      head = NULL; // List becomes empty
     delete temp;
   }
 

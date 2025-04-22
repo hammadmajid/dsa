@@ -5,11 +5,6 @@ using namespace std;
 struct Node {
   int data;
   Node *next;
-
-  Node(int value) {
-    data = value;
-    next = nullptr;
-  }
 };
 
 // Queue class
@@ -23,7 +18,8 @@ public:
 
   // Enqueue operation
   void enqueue(int value) {
-    Node *newNode = new Node(value);
+    Node *newNode = new Node();
+    newNode->data = value;
     if (rear == nullptr) {
       front = rear = newNode;
       return;

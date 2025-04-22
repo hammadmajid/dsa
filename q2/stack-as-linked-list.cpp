@@ -48,7 +48,7 @@ void display() {
     return;
   }
   Node *temp = top;
-  while (temp) {
+  while (temp != NULL) {
     cout << temp->data << " ";
     temp = temp->next;
   }

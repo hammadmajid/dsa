@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -128,6 +127,43 @@ public:
   }
 
   bool searchRecursively(int value) { return searchRecursively(root, value); }
+
+  // Helper to find minimum node in a subtree
+  Node *findMin(Node *node) {
+    while (node && node->left != NULL)
+      node = node->left;
+    return node;
+  }
+
+  Node *deleteNode(Node *node, int value) {
+    if (node == NULL)
+      return NULL;
+
+    if (value < node->data) {
+      node->left = deleteNode(node->left, value);
+    } else if (value > node->data) {
+      node->right = deleteNode(node->right, value);
+    } else {
+      // Node found
+      if (node->left == NULL) {
+        Node *temp = node->right;
+        delete node;
+        return temp;
+      } else if (node->right == NULL) {
+        Node *temp = node->left;
+        delete node;
+        return temp;
+      } else {
+        // Node with two children
+        Node *temp = findMin(node->right);
+        node->data = temp->data;
+        node->right = deleteNode(node->right, temp->data);
+      }
+    }
+    return node;
+  }
+
+  void deleteNode(int value) { root = deleteNode(root, value); }
 };
 
 int main() {

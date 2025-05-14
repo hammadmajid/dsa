@@ -6,7 +6,7 @@ struct Node {
   Node *left, *right;
 };
 
-Node *createNode(int value) { return new Node{value, nullptr, nullptr}; }
+Node *createNode(int value) { return new Node{value, NULL, NULL}; }
 
 Node *insert(Node *root, int value) {
   if (!root)
@@ -52,7 +52,7 @@ void inorder(Node *root) {
 }
 
 int main() {
-  Node *root = nullptr;
+  Node *root = NULL;
   root = insert(root, 50);
   insert(root, 30);
   insert(root, 70);

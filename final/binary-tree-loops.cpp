@@ -6,7 +6,7 @@ struct Node {
   Node *left, *right;
 };
 
-Node *createNode(int value) { return new Node{value, nullptr, nullptr}; }
+Node *createNode(int value) { return new Node{value, NULL, NULL}; }
 
 // Iterative insert
 Node *insert(Node *root, int value) {
@@ -14,7 +14,7 @@ Node *insert(Node *root, int value) {
   if (!root)
     return newNode;
 
-  Node *parent = nullptr;
+  Node *parent = NULL;
   Node *curr = root;
 
   while (curr) {
@@ -42,7 +42,7 @@ Node *findMin(Node *node) {
 
 // Iterative delete
 Node *deleteNode(Node *root, int value) {
-  Node *parent = nullptr;
+  Node *parent = NULL;
   Node *curr = root;
 
   // Find the node and its parent
@@ -100,7 +100,7 @@ void inorder(Node *root) {
 }
 
 int main() {
-  Node *root = nullptr;
+  Node *root = NULL;
   root = insert(root, 50);
   insert(root, 30);
   insert(root, 70);
